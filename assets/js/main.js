@@ -66,6 +66,15 @@ function saveTasks () {
     const tarefaJSON = JSON.stringify(arrayTarefas);
     localStorage.setItem('tarefas', tarefaJSON);
 
-    console.log(tarefaJSON);
-
 }
+
+function recoverTasks () {
+    const listTarefa = localStorage.getItem('tarefas');
+    const array = JSON.parse(listTarefa);
+
+    for (let task of array) {
+        createTask(task);
+    }
+}
+
+recoverTasks();
