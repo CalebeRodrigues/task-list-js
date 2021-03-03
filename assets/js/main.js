@@ -8,12 +8,22 @@ btnTarefa.addEventListener('click', function (e) {
     createTask(inputTarefa.value);
 })
 
+document.addEventListener ('click', function(e) {
+    const elem = e.target;
+
+    btnApagarClick(elem.classList.contains('apagar'), elem);   
+})
+
 inputTarefa.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         if (!inputTarefa.value) return;
         createTask(inputTarefa.value);
     }
 })
+
+function btnApagarClick (e, elem) {
+    if (e) elem.parentElement.remove();
+}
 
 function createTask (text) {
     const li = createLi();
