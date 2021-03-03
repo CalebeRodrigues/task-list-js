@@ -6,23 +6,25 @@ btnTarefa.addEventListener('click', function (e) {
     if (!inputTarefa.value) return;
 
     createTask(inputTarefa.value);
-})
+});
 
 document.addEventListener ('click', function(e) {
     const elem = e.target;
 
     btnApagarClick(elem.classList.contains('apagar'), elem);   
-})
+});
 
 inputTarefa.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         if (!inputTarefa.value) return;
         createTask(inputTarefa.value);
     }
-})
+});
 
 function btnApagarClick (e, elem) {
     if (e) elem.parentElement.remove();
+
+    saveTasks();
 }
 
 function createTask (text) {
@@ -31,6 +33,7 @@ function createTask (text) {
     tarefa.appendChild(li);
     createDeleteButton(li);
 
+    saveTasks();
     resetInput();
 }
 
@@ -50,4 +53,19 @@ function createDeleteButton (li) {
 function resetInput () {
     inputTarefa.value = '';
     inputTarefa.focus();
+}
+
+function saveTasks () {
+    const arrayTarefas = [];
+
+    for (let task of tarefa.querySelectorAll('li')){
+        let txt = task.innerText.replace('Apagar', '').trim();
+        arrayTarefas.push(txt);
+    }
+
+    const tarefaJSON = JSON.stringify(arrayTarefas);
+    localStorage.setItem('tarefas', tarefaJSON);
+
+    console.log(tarefaJSON);
+
 }
