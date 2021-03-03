@@ -19,8 +19,14 @@ function createTask (text) {
     const li = createLi();
     li.innerText = text;
     tarefa.appendChild(li);
+    resetInput();
 }
 
 function createLi () {
     return document.createElement('li');
+}
+
+function resetInput () {
+    inputTarefa.value = '';
+    inputTarefa.focus();
 }
