@@ -3,12 +3,17 @@ const btnTarefa = document.querySelector('.btn-task');
 const tarefa = document.querySelector('.tarefas');
 
 btnTarefa.addEventListener('click', function (e) {
-    const txt = inputTarefa.value;
-    
-    if(txt.length > 0) {
-        console.log(txt);
-    }
-    else {
-        console.log('Nada digitado');
-    }
+    if (!inputTarefa.value) return;
+
+    createTask(inputTarefa.value);
 })
+
+function createTask (text) {
+    const li = createLi();
+    li.innerText = text;
+    tarefa.appendChild(li);
+}
+
+function createLi () {
+    return document.createElement('li');
+}
