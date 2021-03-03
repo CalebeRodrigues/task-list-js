@@ -27,9 +27,15 @@ body{
     border-radius: 10px;
 }
 
+.center {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
 .txt-style {
     font-size: 1em;
     padding: 5px;
+    padding-right: 150px;
 }
 
 .btn-style {
@@ -37,11 +43,32 @@ body{
     font-weight: 520;
     border-radius: 10px;
     cursor: pointer;
-    border: 2px solid rgb(177, 176, 176);
-    background-color: rgba(19, 156, 197, 0.589);
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(34, 146, 180);
 }
 
 .btn-style:hover {
-    border: 2px solid rgb(0, 0, 0);
-    background-color: rgba(25, 148, 185, 0.767);
+    border: 2px solid rgb(172, 172, 172);
+    background-color: rgba(38, 177, 219, 0.767);
+}
+
+ul li {
+    display: inline-flex;
+    margin-bottom: 20px;
+}
+
+ul li button {
+    margin-left: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+ul li button:hover {
+    background-color: rgb(255, 53, 53);
+}
+
+.apagar {
+    background-color: white;
 }

@@ -31,6 +31,7 @@ function createTask (text) {
     const li = createLi();
     li.innerText = text;
     tarefa.appendChild(li);
+    tarefa.appendChild(document.createElement('br'));
     createDeleteButton(li);
 
     saveTasks();
@@ -63,16 +64,14 @@ function saveTasks () {
         arrayTarefas.push(txt);
     }
 
-    const tarefaJSON = JSON.stringify(arrayTarefas);
-    localStorage.setItem('tarefas', tarefaJSON);
+    localStorage.setItem('tarefas', JSON.stringify(arrayTarefas));
 
 }
 
 function recoverTasks () {
-    const listTarefa = localStorage.getItem('tarefas');
-    const array = JSON.parse(listTarefa);
+    const listTarefa = JSON.parse(localStorage.getItem('tarefas'));
 
-    for (let task of array) {
+    for (let task of listTarefa) {
         createTask(task);
     }
 }
